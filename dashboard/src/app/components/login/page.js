@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../components/Providers/AuthProvider.js';
-import { useFeedback } from '../../components/FeedbackProvider.js';
+import { useFeedback } from '../../components/Providers/Feedbackprovider.js';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
