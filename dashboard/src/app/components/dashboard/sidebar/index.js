@@ -1,28 +1,48 @@
 'use client';
-import Link from 'next/link';
+
 import { useAuth } from '../../../components/Providers/AuthProvider.js';
 
-export default function Sidebar() {
+export default function Sidebar({ view, setView }) {
   const { logout } = useAuth();
 
   return (
-    <aside className="w-64 bg-white shadow-md p-6 space-y-6">
-      <h2 className="text-xl font-bold text-blue-600">OneClick Drive</h2>
+    <aside className="w-64 h-screen p-6 bg-gradient-to-br from-[#f18b54] to-[#f09330] text-white shadow-lg flex flex-col justify-between">
+      <div>
+        <h2 className="text-2xl font-extrabold mb-10">OneClickDrive</h2>
 
-      <nav className="space-y-4">
-        <Link href="/dashboard" className="block text-gray-700 hover:text-blue-600">
-          Listings
-        </Link>
-        <Link href="/dashboard/audit" className="block text-gray-700 hover:text-blue-600">
-          Audit Log
-        </Link>
+        <nav className="space-y-2">
+          <button
+            onClick={() => setView('listings')}
+            className={`w-full text-left px-4 py-2 rounded-md font-medium transition ${
+              view === 'listings'
+                ? 'bg-white/20 text-white font-semibold'
+                : 'hover:bg-white/10'
+            }`}
+          >
+             Rental Listings
+          </button>
+
+          <button
+            onClick={() => setView('audit')}
+            className={`w-full text-left px-4 py-2 rounded-md font-medium transition ${
+              view === 'audit'
+                ? 'bg-white/20 text-white font-semibold'
+                : 'hover:bg-white/10'
+            }`}
+          >
+            Audit Logs
+          </button>
+        </nav>
+      </div>
+
+      <div className="mt-10 pt-4 border-t border-white/20">
         <button
           onClick={logout}
-          className="block w-full text-left text-red-500 hover:text-red-700"
+          className="w-full text-left px-4 py-2 rounded-md text-red-100 hover:bg-red-600/30 transition"
         >
-          Logout
+          🔒 Logout
         </button>
-      </nav>
+      </div>
     </aside>
   );
 }

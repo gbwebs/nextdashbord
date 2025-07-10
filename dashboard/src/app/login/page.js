@@ -30,7 +30,10 @@ export default function LoginPage() {
             {error}
           </div>
         )}
-
+  <div className="mb-4 text-black-500 text-sm text-center">
+            user:-admin@oneclickdrive.com<br/>
+            pass:-admin123
+          </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
