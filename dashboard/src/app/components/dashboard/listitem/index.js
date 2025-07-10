@@ -52,7 +52,7 @@ export default function CarTable() {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    await fetch('/api/listings', {
+    await fetch('/api/listing', {
       method: 'POST',
       body: JSON.stringify({
         id: editId,
