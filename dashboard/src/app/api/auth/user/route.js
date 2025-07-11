@@ -1,4 +1,4 @@
-// app/api/auth/me/route.js
+
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {
@@ -8,6 +8,6 @@ export async function GET(req) {
     return NextResponse.json({ user: null }, { status: 401 });
   }
 
-  const email = token.split('-')[1]; // Extract email from mock token
+  const email = token.split('-')[1]; 
   return NextResponse.json({ user: { email } });
 }

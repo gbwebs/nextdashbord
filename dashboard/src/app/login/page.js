@@ -41,7 +41,7 @@ export default function LoginPage() {
             </label>
             <input
               type="email"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-orange-500"
               placeholder="admin@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -55,7 +55,7 @@ export default function LoginPage() {
             </label>
             <input
               type="password"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-orange-500"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +66,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>

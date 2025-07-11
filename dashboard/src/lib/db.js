@@ -20,6 +20,7 @@ export function getListings() {
 }
 
 export function updateListing(id, data, admin = 'admin') {
+  console.log(auditLog)
   const index = listings.findIndex((l) => l.id === Number(id));
   if (index !== -1) {
     const old = listings[index];
@@ -35,6 +36,7 @@ export function updateListing(id, data, admin = 'admin') {
 }
 
 export function changeStatus(id, status, admin = 'admin') {
+  console.log(auditLog)
   const index = listings.findIndex((l) => l.id === Number(id));
   if (index !== -1) {
     listings[index].status = status;
@@ -45,8 +47,10 @@ export function changeStatus(id, status, admin = 'admin') {
       listingId: id,
     });
   }
+
 }
 
 export function getAuditLogs() {
+  console.log(auditLog)
   return auditLog;
 }

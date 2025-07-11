@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from '../components/dashboard/sidebar';
 import Topbar from '../components/dashboard/topbar';
 import CarTable from '../components/dashboard/listitem';
@@ -8,11 +8,25 @@ import AuditLog from '../components/dashboard/audit';
 
 export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [view, setView] = useState('listings'); // 'audit' or 'listings'
+  const [view, setView] = useState('listings');
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+
+  const handleViewChange = (newView) => {
+    setView(newView);
+    if (isMobile) setSidebarOpen(false);
+  };
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-100">
-      {/* Mobile Sidebar Overlay */}
+
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/50 lg:hidden"
@@ -20,16 +34,15 @@ export default function DashboardPage() {
         />
       )}
 
-      {/* Sidebar */}
+
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 lg:static lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 lg:static lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
-        <Sidebar view={view} setView={setView} />
+        <Sidebar view={view} setView={handleViewChange} />
       </div>
 
-      {/* Main Content */}
+
       <div className="flex-1 flex flex-col overflow-hidden">
         <Topbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 

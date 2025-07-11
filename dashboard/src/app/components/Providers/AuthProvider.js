@@ -7,8 +7,8 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);        // Stores user info
-  const [loading, setLoading] = useState(true);  // Controls initial auth check
+  const [user, setUser] = useState(null);   
+  const [loading, setLoading] = useState(true);  
   const router = useRouter();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
         console.error('Auth check failed:', err);
         setUser(null);
       } finally {
-        setLoading(false); // Finish loading regardless of result
+        setLoading(false); 
       }
     };
 

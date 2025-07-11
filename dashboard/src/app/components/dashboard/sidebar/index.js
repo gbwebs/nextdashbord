@@ -40,7 +40,7 @@ export default function Sidebar({ view, setView }) {
           onClick={logout}
           className="w-full text-left px-4 py-2 rounded-md text-red-100 hover:bg-red-600/30 transition"
         >
-          🔒 Logout
+          Logout
         </button>
       </div>
     </aside>

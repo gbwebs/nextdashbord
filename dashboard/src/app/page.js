@@ -8,7 +8,7 @@ export default function HomePage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <button
         onClick={() => router.push('/dashboard')}
-        className="px-6 py-3 bg-blue-600 text-white text-lg rounded hover:bg-blue-700 transition"
+        className="px-6 py-3 bg-orange-600 text-white text-lg rounded hover:bg-orange-700 transition"
       >
         Dashboard
       </button>
